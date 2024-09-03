@@ -81,11 +81,7 @@ class Menu(BankAccount bankAccount)
                 answer > maxValue
             )
         {
-            Console.WriteLine(
-                $"{Environment.NewLine}" +
-                errorMessage +
-                $"{Environment.NewLine}"
-                );
+            PaddedPrompt(errorMessage);
             return false;
         }
         return true;
