@@ -1,1 +1,1 @@
-Övning för en kurs
+Övningar för olika C# kurser under systemutvecklare utbildning
