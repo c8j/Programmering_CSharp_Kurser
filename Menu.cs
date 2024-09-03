@@ -38,12 +38,12 @@ class Menu(BankAccount bankAccount)
         "Vänligen ange ett giltigt nummer",
         "Ange belopp för uttag",
         "Belopp större än nuvarande saldo.",
-        "uttag genomfört.",
+        "Uttag genomfört.",
         "Ange belopp för insättning",
         $"Nytt totalbelopp överstiger kapaciteten ({uint.MaxValue}).",
-        "insättning genomfört.",
+        "Insättning genomfört.",
         "Transaktionshistorik",
-        "Inga transaktioner än"
+        "Inga transaktioner än."
     ];
 
     readonly BankAccount _bankAccount = bankAccount;
@@ -81,7 +81,11 @@ class Menu(BankAccount bankAccount)
                 answer > maxValue
             )
         {
-            Console.WriteLine(errorMessage);
+            Console.WriteLine(
+                $"{Environment.NewLine}" +
+                errorMessage +
+                $"{Environment.NewLine}"
+                );
             return false;
         }
         return true;
@@ -95,9 +99,8 @@ class Menu(BankAccount bankAccount)
             1,
             (uint)Option.Exit + 1,
             $"{_promptText[(int)Prompt.OptionInput]}: ",
-            $@"{Environment.NewLine}
-            {_promptText[(int)Prompt.Error]}
-            ({1}-{(uint)Option.Exit + 1})."
+            _promptText[(int)Prompt.Error] +
+            $"({1}-{(uint)Option.Exit + 1})."
             )
             )
         {
@@ -110,24 +113,20 @@ class Menu(BankAccount bankAccount)
                         0,
                         uint.MaxValue,
                         $"{_promptText[(int)Prompt.Deposit]}: ",
-                        $"{Environment.NewLine}{_promptText[(int)Prompt.Error]}" +
+                        _promptText[(int)Prompt.Error] +
                         $"({0}-{uint.MaxValue})."
                         )
                         )
                     {
                         if (_bankAccount.Deposit(amount))
                         {
-                            Console.WriteLine(_promptText[(int)Prompt.DepositSuccess]);
+                            PaddedPrompt(_promptText[(int)Prompt.DepositSuccess]);
                         }
                         else
                         {
-                            Console.WriteLine(_promptText[(int)Prompt.DepositTooMuch]);
+                            PaddedPrompt(_promptText[(int)Prompt.DepositTooMuch]);
                         }
 
-                    }
-                    else
-                    {
-                        Console.WriteLine(_promptText[(int)Prompt.Error]);
                     }
                     break;
                 case (uint)Option.Withdraw:
@@ -143,24 +142,22 @@ class Menu(BankAccount bankAccount)
                     {
                         if (_bankAccount.Withdraw(amount))
                         {
-                            Console.WriteLine(_promptText[(int)Prompt.WithdrawSuccess]);
+                            PaddedPrompt(_promptText[(int)Prompt.WithdrawSuccess]);
                         }
                         else
                         {
-                            Console.WriteLine(_promptText[(int)Prompt.WithdrawNotEnoughBalance]);
+                            PaddedPrompt(_promptText[(int)Prompt.WithdrawNotEnoughBalance]);
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine(_promptText[(int)Prompt.Error]);
                     }
                     break;
                 case (uint)Option.Transactions:
-                    Console.WriteLine(
-                        $"{Environment.NewLine}{_promptText[(int)Prompt.Transactions]}"
-                        );
                     if (_bankAccount.Transactions.Count != 0)
                     {
+                        PaddedPrompt(
+                        _promptText[(int)Prompt.Transactions] +
+                        $"{Environment.NewLine}" +
+                        "-------------------------------------"
+                        );
                         foreach (var transaction in _bankAccount.Transactions)
                         {
                             Console.WriteLine(
@@ -169,10 +166,11 @@ class Menu(BankAccount bankAccount)
                                 transaction.Amount.ToString()
                             );
                         }
+                        Console.WriteLine();
                     }
                     else
                     {
-                        Console.WriteLine(_promptText[(int)Prompt.TransactionsEmpty]);
+                        PaddedPrompt(_promptText[(int)Prompt.TransactionsEmpty]);
                     }
                     break;
                 case (uint)Option.Exit:
@@ -182,5 +180,14 @@ class Menu(BankAccount bankAccount)
             }
         }
         return true;
+    }
+
+    static void PaddedPrompt(string prompt)
+    {
+        Console.WriteLine(
+            $"{Environment.NewLine}" +
+            prompt +
+            $"{Environment.NewLine}"
+        );
     }
 }
