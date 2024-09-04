@@ -188,9 +188,9 @@ class Menu(BankAccount bankAccount)
     static void PaddedPrompt(string prompt)
     {
         Console.WriteLine(
-            $"{Environment.NewLine}" +
+            Environment.NewLine +
             prompt +
-            $"{Environment.NewLine}"
+            Environment.NewLine
         );
     }
 }
