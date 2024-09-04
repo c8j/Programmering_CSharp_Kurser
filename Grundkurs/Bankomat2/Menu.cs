@@ -42,7 +42,7 @@ class Menu(BankAccount bankAccount)
         "Belopp större än nuvarande saldo.",
         "Uttag genomfört.",
         "Ange belopp för insättning",
-        $"Nytt totalbelopp överstiger kapaciteten ({uint.MaxValue}).",
+        $"Nytt totalbelopp överstiger kapaciteten ({decimal.MaxValue}).",
         "Insättning genomfört.",
         "Transaktionshistorik",
         "Inga transaktioner än."
@@ -71,6 +71,27 @@ class Menu(BankAccount bankAccount)
                 _optionText[(byte)option]
             );
         }
+    }
+
+    static bool ReadInput(
+        out decimal answer,
+        decimal minValue,
+        decimal maxValue,
+        string prompt,
+        string errorMessage
+        )
+    {
+        Console.Write(prompt);
+        if (
+                !decimal.TryParse(Console.ReadLine(), out answer) ||
+                answer < minValue ||
+                answer > maxValue
+            )
+        {
+            PaddedPrompt(errorMessage);
+            return false;
+        }
+        return true;
     }
 
     static bool ReadInput(
@@ -107,17 +128,17 @@ class Menu(BankAccount bankAccount)
             )
             )
         {
-            uint amount;
+            decimal amount;
             switch (answer - 1)
             {
                 case (uint)Option.Deposit:
                     if (ReadInput(
                         out amount,
-                        0,
-                        uint.MaxValue,
+                        0m,
+                        decimal.MaxValue,
                         $"{_promptText[(int)Prompt.Deposit]}: ",
                         _promptText[(int)Prompt.Error] +
-                        $"({0}-{uint.MaxValue})."
+                        $"({0m}-{decimal.MaxValue})."
                         )
                         )
                     {
@@ -135,11 +156,11 @@ class Menu(BankAccount bankAccount)
                 case (uint)Option.Withdraw:
                     if (ReadInput(
                         out amount,
-                        0,
-                        uint.MaxValue,
+                        0m,
+                        decimal.MaxValue,
                         $"{_promptText[(int)Prompt.Withdraw]}: ",
                         $"{Environment.NewLine}{_promptText[(int)Prompt.Error]}" +
-                        $"({0}-{uint.MaxValue})."
+                        $"({0m}-{decimal.MaxValue})."
                         )
                         )
                     {
