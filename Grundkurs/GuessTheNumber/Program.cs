@@ -60,13 +60,6 @@ class Program
                             continueAnswer = Console.ReadLine();
                         }
                         if (continueAnswer.Equals(
-                                "y",
-                                StringComparison.CurrentCultureIgnoreCase
-                                ))
-                        {
-                            //do nothing special.. idk lol
-                        }
-                        else if (continueAnswer.Equals(
                                 "n",
                                 StringComparison.CurrentCultureIgnoreCase
                                 ))
