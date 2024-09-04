@@ -3,7 +3,7 @@ namespace Bankomat2;
 class BankAccount(string accountNumber, string currency, decimal interestRate)
 {
     public decimal Balance { get; private set; } = 0;
-    private readonly decimal _interestRate = interestRate;
+    public decimal InterestRate {get; init;} = interestRate;
     public string Currency { get; init; } = currency;
     public List<Transaction> Transactions { get; private set; } = [];
     public string AccountNumber { get; init; } = accountNumber;
@@ -17,7 +17,7 @@ class BankAccount(string accountNumber, string currency, decimal interestRate)
         decimal interest = 0;
         if (Balance >= 1000m)
         {
-            interest = Balance * _interestRate;
+            interest = Balance * InterestRate;
             if (Balance > decimal.MaxValue - amount - interest)
             {
                 return false;
