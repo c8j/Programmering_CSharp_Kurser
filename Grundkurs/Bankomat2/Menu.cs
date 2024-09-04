@@ -179,15 +179,18 @@ class Menu(BankAccount bankAccount)
                     {
                         PaddedPrompt(
                         _promptText[(int)Prompt.Transactions] +
+                        new string(' ', 31) +
+                        "Rå belopp + Ränta" +
                         $"{Environment.NewLine}" +
-                        "-------------------------------------"
+                        new string('-', 115)
                         );
                         foreach (var transaction in _bankAccount.Transactions)
                         {
                             Console.WriteLine(
                                 $"{transaction.Timestamp}: " +
-                                $"{(transaction.IsWithdraw ? "-" : "+")}" +
-                                transaction.Amount.ToString()
+                                $"{(transaction.IsWithdraw ? "-" : "+") + transaction.Amount,-29:F2}" +
+                                (transaction.Interest > 0 ?
+                                $" ({transaction.Amount - transaction.Interest:F2} + {transaction.Interest:F2})" : "")
                             );
                         }
                         Console.WriteLine();

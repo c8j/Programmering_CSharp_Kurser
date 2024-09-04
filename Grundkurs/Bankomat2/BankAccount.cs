@@ -2,7 +2,7 @@ namespace Bankomat2;
 
 class BankAccount(string accountNumber, string currency, decimal interestRate)
 {
-    public decimal Balance { get; private set; } = 0m;
+    public decimal Balance { get; private set; } = 0;
     private readonly decimal _interestRate = interestRate;
     public string Currency { get; init; } = currency;
     public List<Transaction> Transactions { get; private set; } = [];
@@ -14,11 +14,17 @@ class BankAccount(string accountNumber, string currency, decimal interestRate)
         {
             return false;
         }
-        Balance += amount;
-        Transactions.Add(new Transaction(false, amount, DateTime.Now));
-        if(Balance > 1000){
-            Balance += Balance*_interestRate;
+        decimal interest = 0;
+        if (Balance >= 1000m)
+        {
+            interest = Balance * _interestRate;
+            if (Balance > decimal.MaxValue - amount - interest)
+            {
+                return false;
+            }
         }
+        Balance += amount + interest;
+        Transactions.Add(new Transaction(false, amount, DateTime.Now, interest));
         return true;
     }
 
@@ -29,7 +35,7 @@ class BankAccount(string accountNumber, string currency, decimal interestRate)
             return false;
         }
         Balance -= amount;
-        Transactions.Add(new Transaction(true, amount, DateTime.Now));
+        Transactions.Add(new Transaction(true, amount, DateTime.Now, 0));
         return true;
     }
 
