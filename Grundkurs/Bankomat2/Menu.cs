@@ -12,6 +12,7 @@ class Menu(BankAccount bankAccount)
 
     enum Prompt
     {
+        AccountInfo,
         Balance,
         OptionInput,
         Error,
@@ -33,6 +34,7 @@ class Menu(BankAccount bankAccount)
     ];
 
     static readonly string[] _promptText = [
+        "Konto (ID, Saldo): ",
         "Aktuellt saldo",
         "Välj alternativ",
         "Vänligen ange ett giltigt nummer",
@@ -51,10 +53,15 @@ class Menu(BankAccount bankAccount)
     void Display()
     {
         //Print balance and menu options
-        Console.WriteLine("{0}: {1} {2}",
-            _promptText[(int)Prompt.Balance],
-            _bankAccount.Balance,
-            _bankAccount.Currency
+        // Console.WriteLine("{0}: {1} {2}",
+        //     _promptText[(int)Prompt.Balance],
+        //     _bankAccount.Balance,
+        //     _bankAccount.Currency
+        // );
+
+        Console.WriteLine(
+            _promptText[(int)Prompt.AccountInfo] +
+            _bankAccount
         );
 
         foreach (Option option in Enum.GetValues<Option>())
