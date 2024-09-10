@@ -17,4 +17,29 @@ public class Invoice
     public string SenderPhone { get; set; }
     public string SenderReference { get; set; }
     public string SenderReferenceEmail { get; set; }
+
+    /* Customer Info */
+    public int CustomerNumber { get; set; }
+    public string CustomerName { get; set; }
+    public string CustomerAddress { get; set; }
+    public string CustomerPostalCode { get; set; }
+    public string CustomerCity { get; set; }
+    public string CustomerReference { get; set; }
+    public int PaymentTerms { get; set; }
+
+    /* CONSTRUCTORS */
+    public Invoice(){
+        SenderName="";
+        SenderAddress="";
+        SenderPostalCode="";
+        SenderCity="";
+        SenderPhone="";
+        SenderReference="";
+        SenderReferenceEmail="";
+        CustomerName="";
+        CustomerAddress="";
+        CustomerPostalCode="";
+        CustomerCity="";
+        CustomerReference="";
+    }
 }
