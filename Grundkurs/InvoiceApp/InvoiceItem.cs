@@ -6,7 +6,7 @@ public class InvoiceItem
     public string ProductName { get; set; }
     public decimal Price { get; set; }
     public int Amount { get; set; }
-    public decimal RowAmount { get; set; }
+    public decimal RowPrice { get; set; }
 
     public InvoiceItem()
     {
@@ -19,6 +19,11 @@ public class InvoiceItem
         ProductName = productName;
         Price = price;
         Amount = amount;
-        RowAmount = price * amount;
+        RowPrice = price * amount;
+    }
+
+    public override string ToString()
+    {
+        return $"ID: {ProductID}, Name: {ProductName}, Price: {Price}, Amount: {Amount}, Total: {RowPrice}" ;
     }
 }
