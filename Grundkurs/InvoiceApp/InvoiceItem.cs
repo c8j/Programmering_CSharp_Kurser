@@ -24,6 +24,6 @@ public class InvoiceItem
 
     public override string ToString()
     {
-        return $"ID: {ProductID}, Name: {ProductName}, Price: {Price}, Amount: {Amount}, Total: {RowPrice}" ;
+        return $"ID: {ProductID}, Namn: {ProductName}, Pris/st: {Price}, Antal: {Amount}, Totalt: {RowPrice}" ;
     }
 }
