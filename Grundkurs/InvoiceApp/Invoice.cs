@@ -27,6 +27,9 @@ public class Invoice
     public string CustomerReference { get; set; }
     public int PaymentTerms { get; set; }
 
+    /* Fakturans rader */
+    public List<InvoiceItem> InvoiceItems { get; set;}
+
     /* CONSTRUCTORS */
     public Invoice()
     {
@@ -42,6 +45,21 @@ public class Invoice
         CustomerPostalCode = "";
         CustomerCity = "";
         CustomerReference = "";
+
+        //Generera fakturanummer
+        InvoiceNumber = new Random().Next(10000, 33001);
+
+        //Sätt betalningsvilkor
+        PaymentTerms = 30;
+
+        //Skapa fakturadatum
+        InvoiceDate = DateTime.Now;
+
+        //Räkna fram förfallodatum
+        DueDate = InvoiceDate.AddDays(PaymentTerms);
+
+        //Initiera listan av fakturarader
+        InvoiceItems = [];
     }
 
     /* METHODS */
