@@ -28,18 +28,25 @@ public class Invoice
     public int PaymentTerms { get; set; }
 
     /* CONSTRUCTORS */
-    public Invoice(){
-        SenderName="";
-        SenderAddress="";
-        SenderPostalCode="";
-        SenderCity="";
-        SenderPhone="";
-        SenderReference="";
-        SenderReferenceEmail="";
-        CustomerName="";
-        CustomerAddress="";
-        CustomerPostalCode="";
-        CustomerCity="";
-        CustomerReference="";
+    public Invoice()
+    {
+        SenderName = "";
+        SenderAddress = "";
+        SenderPostalCode = "";
+        SenderCity = "";
+        SenderPhone = "";
+        SenderReference = "";
+        SenderReferenceEmail = "";
+        CustomerName = "";
+        CustomerAddress = "";
+        CustomerPostalCode = "";
+        CustomerCity = "";
+        CustomerReference = "";
+    }
+
+    /* METHODS */
+    public override string ToString()
+    {
+        return $"Fakturanummer: {InvoiceNumber} - Fakturadatum: {InvoiceDate} - Förfallodatum: {DueDate} - Kund: {CustomerName}";
     }
 }
