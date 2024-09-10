@@ -4,10 +4,10 @@ public class Invoice
 {
     /* PROPERTIES */
     //Base info
-    public int InvoiceNumber { get; set; }
-    public DateTime InvoiceDate { get; set; }
-    public DateTime DueDate { get; set; }
-    public decimal TotalValue { get; set; }
+    public int InvoiceNumber { get; }
+    public DateTime InvoiceDate { get; }
+    public DateTime DueDate { get;}
+    public decimal TotalValue { get; private set; }
 
     //Sender(Company) info
     public string SenderName { get; set; }
@@ -25,10 +25,10 @@ public class Invoice
     public string CustomerPostalCode { get; set; }
     public string CustomerCity { get; set; }
     public string CustomerReference { get; set; }
-    public int PaymentTerms { get; set; }
+    public int PaymentTerms { get; }
 
     /* Fakturans rader */
-    public List<InvoiceItem> InvoiceItems { get; set;}
+    public List<InvoiceItem> InvoiceItems { get; }
 
     /* CONSTRUCTORS */
     public Invoice()
