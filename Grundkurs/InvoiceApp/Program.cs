@@ -27,8 +27,22 @@ Invoice invoice =
         SenderReferenceEmail = "harry@gmail.com",
     };
 
-invoice.AddItem(new InvoiceItem(new Product(1), 4));
-invoice.AddItem(new InvoiceItem(new Product(2), 1));
+
+try
+{
+    invoice.AddItem(new InvoiceItem(new Product(1), 4));
+    invoice.AddItem(new InvoiceItem(new Product(2), 1));
+    invoice.AddItem(new InvoiceItem(new Product(3), 2));
+}
+catch (ArgumentException ex)
+{
+    Console.WriteLine(ex.Message);
+}
+catch (Exception)
+{
+    Console.WriteLine("Något blev fel");
+}
+
 Console.WriteLine(invoice);
 Console.WriteLine("Fakturarader:");
 invoice.ListItems();
