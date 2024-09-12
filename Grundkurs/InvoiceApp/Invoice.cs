@@ -6,7 +6,7 @@ public class Invoice
     //Base info
     public int InvoiceNumber { get; }
     public DateTime InvoiceDate { get; }
-    public DateTime DueDate { get;}
+    public DateTime DueDate { get; }
     public decimal TotalValue { get; private set; }
 
     //Sender(Company) info
@@ -68,12 +68,14 @@ public class Invoice
         return $"Fakturanummer: {InvoiceNumber} - Fakturadatum: {InvoiceDate} - Förfallodatum: {DueDate} - Kund: {CustomerName} - Totalt: {TotalValue}";
     }
 
-    public void AddItem(InvoiceItem invoiceItem){
+    public void AddItem(InvoiceItem invoiceItem)
+    {
         InvoiceItems.Add(invoiceItem);
         TotalValue += invoiceItem.RowPrice;
     }
 
-    public void ListItems(){
+    public void ListItems()
+    {
         foreach (var invoiceItem in InvoiceItems)
         {
             Console.WriteLine(invoiceItem);

@@ -1,31 +1,31 @@
 ﻿using InvoiceApp;
 
 //Skapa ett objekt ifrån klassen Invoice
-Invoice invoice = new();
+Invoice invoice =
+    new()
+    {
+        /* Fakturans Basinformation  */
+        //invoice.InvoiceNumber = 1;
+        //invoice.InvoiceDate = DateTime.Now;
+        //invoice.DueDate = DateTime.Now.AddDays(invoice.PaymentTerms);
 
-Console.WriteLine(invoice);
+        /* Kund information */
+        CustomerNumber = 981256,
+        CustomerName = "Bosse Kofot",
+        CustomerAddress = "Rånarvägen 1",
+        CustomerPostalCode = "666 78",
+        CustomerCity = "Härlanda",
+        CustomerReference = "Sickan Karlsson",
 
-/* Fakturans Basinformation  */
-//invoice.InvoiceNumber = 1;
-//invoice.InvoiceDate = DateTime.Now;
-//invoice.DueDate = DateTime.Now.AddDays(invoice.PaymentTerms);
-
-/* Kund information */
-invoice.CustomerNumber = 981256;
-invoice.CustomerName = "Bosse Kofot";
-invoice.CustomerAddress = "Rånarvägen 1";
-invoice.CustomerPostalCode = "666 78";
-invoice.CustomerCity = "Härlanda";
-invoice.CustomerReference = "Sickan Karlsson";
-
-/* Företags information */
-invoice.SenderName = "Vanhedens järnhandel";
-invoice.SenderAddress = "Stålgatan 14";
-invoice.SenderPostalCode = "888 98";
-invoice.SenderCity = "Hålan";
-invoice.SenderPhone = "073-444222";
-invoice.SenderReference = "Dynamit Harry";
-invoice.SenderReferenceEmail = "harry@gmail.com";
+        /* Företags information */
+        SenderName = "Vanhedens järnhandel",
+        SenderAddress = "Stålgatan 14",
+        SenderPostalCode = "888 98",
+        SenderCity = "Hålan",
+        SenderPhone = "073-444222",
+        SenderReference = "Dynamit Harry",
+        SenderReferenceEmail = "harry@gmail.com",
+    };
 
 invoice.AddItem(new InvoiceItem(new Product(1, "Kofot", 149.00M), 4));
 invoice.AddItem(new InvoiceItem(new Product(2, "Slägga", 1095.00M), 1));

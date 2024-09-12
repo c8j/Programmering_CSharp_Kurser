@@ -8,8 +8,7 @@ public class Product(int ID, string name, decimal price)
     public decimal Price { get; init; } = price;
 
     /* METHODS */
-    public override string ToString()
-    {
-        return $"ArtikelID: {ID}, Produktnamn: {Name}, Pris/st: {Price}";
+    public override string ToString(){
+        return $"Artikel ID: {ID}, Produktnamn: {Name}, Pris/st: {Price}";
     }
 }

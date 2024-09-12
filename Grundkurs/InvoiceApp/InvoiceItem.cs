@@ -7,10 +7,7 @@ public class InvoiceItem(Product product, int numberOfItems)
     public int NumberOfItems { get; set; } = numberOfItems;
     public decimal RowPrice
     {
-        get
-        {
-            return NumberOfItems * Product.Price;
-        }
+        get { return NumberOfItems * Product.Price; }
     }
 
     /* METHODS */
@@ -18,5 +15,4 @@ public class InvoiceItem(Product product, int numberOfItems)
     {
         return $"{Product}, Antal: {NumberOfItems}, Totalt: {RowPrice}";
     }
-
 }
