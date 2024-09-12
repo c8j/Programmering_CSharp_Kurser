@@ -3,16 +3,24 @@
 public class Product
 {
     /* PROPERTIES */
-    public int ID { get; init; }
-    public string Name { get; private set; }
+    public int ID { get; }
+    public string Name { get; private set; } = "";
     public decimal Price { get; private set; }
 
     /* CONSTRUCTORS */
     public Product(int id)
     {
-        Name = "";
         ID = id;
-        FindProduct();
+        try
+        {
+            Database.FindProduct(ID, out string name, out decimal price);
+            Name = name;
+            Price = price;
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     /* METHODS */
@@ -22,21 +30,5 @@ public class Product
     }
 
     /* PRIVATE METHODS */
-    private void FindProduct()
-    {
-        if (ID == 1)
-        {
-            Name = "Kofot";
-            Price = 149M;
-        }
-        else if (ID == 2)
-        {
-            Name = "Slägga";
-            Price = 1095M;
-        }
-        else
-        {
-            throw new ArgumentException($"Kunde inte hitta produkt med ID: {ID}");
-        }
-    }
+
 }

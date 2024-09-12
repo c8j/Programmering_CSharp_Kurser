@@ -3,8 +3,8 @@
 public class InvoiceItem(Product product, int numberOfItems)
 {
     /* PROPERTIES */
-    public Product Product { get; init; } = product;
-    public int NumberOfItems { get; set; } = numberOfItems;
+    public Product Product { get; } = product;
+    public int NumberOfItems { get; } = numberOfItems;
     public decimal RowPrice
     {
         get { return NumberOfItems * Product.Price; }

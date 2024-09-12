@@ -9,54 +9,29 @@ public class Invoice
     public DateTime DueDate { get; }
     public decimal TotalValue { get; private set; }
 
-    //Sender(Company) info
-    public string SenderName { get; set; }
-    public string SenderAddress { get; set; }
-    public string SenderPostalCode { get; set; }
-    public string SenderCity { get; set; }
-    public string SenderPhone { get; set; }
-    public string SenderReference { get; set; }
-    public string SenderReferenceEmail { get; set; }
+    //Sender(Company)
+    public Person Sender { get; }
 
-    /* Customer Info */
-    public int CustomerNumber { get; set; }
-    public string CustomerName { get; set; }
-    public string CustomerAddress { get; set; }
-    public string CustomerPostalCode { get; set; }
-    public string CustomerCity { get; set; }
-    public string CustomerReference { get; set; }
-    public int PaymentTerms { get; }
+    /* Customer */
+    public Customer Customer { get; }
 
     /* Fakturans rader */
     public List<InvoiceItem> InvoiceItems { get; }
 
     /* CONSTRUCTORS */
-    public Invoice()
+    public Invoice(int senderID, int customerID)
     {
-        SenderName = "";
-        SenderAddress = "";
-        SenderPostalCode = "";
-        SenderCity = "";
-        SenderPhone = "";
-        SenderReference = "";
-        SenderReferenceEmail = "";
-        CustomerName = "";
-        CustomerAddress = "";
-        CustomerPostalCode = "";
-        CustomerCity = "";
-        CustomerReference = "";
+        Sender = new Person(senderID);
+        Customer = new Customer(customerID);
 
         //Generera fakturanummer
         InvoiceNumber = new Random().Next(10000, 33001);
-
-        //Sätt betalningsvilkor
-        PaymentTerms = 30;
 
         //Skapa fakturadatum
         InvoiceDate = DateTime.Now;
 
         //Räkna fram förfallodatum
-        DueDate = InvoiceDate.AddDays(PaymentTerms);
+        DueDate = InvoiceDate.AddDays(Customer.PaymentTerms);
 
         //Initiera listan av fakturarader
         InvoiceItems = [];
@@ -65,18 +40,18 @@ public class Invoice
     /* METHODS */
     public override string ToString()
     {
-        return $"Fakturanummer: {InvoiceNumber} - Fakturadatum: {InvoiceDate} - Förfallodatum: {DueDate} - Kund: {CustomerName} - Totalt: {TotalValue}";
+        return $"Fakturanummer: {InvoiceNumber} - Fakturadatum: {InvoiceDate} - Förfallodatum: {DueDate} - Kund: {Customer.ContactDetails.Name} - Totalt: {TotalValue}";
     }
 
-    public void AddItem(InvoiceItem invoiceItem)
+    public void AddItem(int productID, int numberOfItems)
     {
-        InvoiceItems.Add(invoiceItem);
-        TotalValue += invoiceItem.RowPrice;
+        InvoiceItems.Add(new InvoiceItem(new Product(productID), numberOfItems));
+        TotalValue += InvoiceItems.Last().RowPrice;
     }
 
     public void ListItems()
     {
-        foreach (var invoiceItem in InvoiceItems)
+        foreach (InvoiceItem invoiceItem in InvoiceItems)
         {
             Console.WriteLine(invoiceItem);
         }
