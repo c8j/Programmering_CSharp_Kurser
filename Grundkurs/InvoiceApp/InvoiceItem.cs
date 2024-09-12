@@ -1,29 +1,22 @@
 ﻿namespace InvoiceApp;
 
-public class InvoiceItem
+public class InvoiceItem(Product product, int numberOfItems)
 {
-    public int ProductID { get; set; }
-    public string ProductName { get; set; }
-    public decimal Price { get; set; }
-    public int Amount { get; set; }
-    public decimal RowPrice { get; set; }
-
-    public InvoiceItem()
+    /* PROPERTIES */
+    public Product Product { get; init; } = product;
+    public int NumberOfItems { get; set; } = numberOfItems;
+    public decimal RowPrice
     {
-        ProductName = "";
+        get
+        {
+            return NumberOfItems * Product.Price;
+        }
     }
 
-    public InvoiceItem(int productID, string productName, decimal price, int amount)
-    {
-        ProductID = productID;
-        ProductName = productName;
-        Price = price;
-        Amount = amount;
-        RowPrice = price * amount;
-    }
-
+    /* METHODS */
     public override string ToString()
     {
-        return $"ID: {ProductID}, Namn: {ProductName}, Pris/st: {Price}, Antal: {Amount}, Totalt: {RowPrice}" ;
+        return $"{Product}, Antal: {NumberOfItems}, Totalt: {RowPrice}";
     }
+
 }

@@ -27,8 +27,8 @@ invoice.SenderPhone = "073-444222";
 invoice.SenderReference = "Dynamit Harry";
 invoice.SenderReferenceEmail = "harry@gmail.com";
 
-invoice.AddItem(new InvoiceItem(1, "Kofot", 149.00M, 4));
-invoice.AddItem(new InvoiceItem(2, "Slägga", 1095.00M, 1));
+invoice.AddItem(new InvoiceItem(new Product(1, "Kofot", 149.00M), 4));
+invoice.AddItem(new InvoiceItem(new Product(2, "Slägga", 1095.00M), 1));
 Console.WriteLine(invoice);
 Console.WriteLine("Fakturarader:");
 invoice.ListItems();
