@@ -1,27 +1,9 @@
 ﻿namespace InvoiceApp;
 
-public class Person
+public class Person(int id)
 {
     /* PROPERTIES */
-    public ContactDetails ContactDetails { get; }
-
-    /* CONSTRUCTORS */
-    public Person(int id)
-    {
-
-        try
-        {
-            ContactDetails = Database.FindContactDetails(id);
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine(ex.Message);
-            ContactDetails = new()
-            {
-                Address = new()
-            };
-        }
-    }
+    public ContactDetails ContactDetails { get; } = Database.FindContactDetails(id);
 
     /* METHODS */
     public override string ToString() => $"Namn: {ContactDetails.Name}, Adress: {ContactDetails.Address}";

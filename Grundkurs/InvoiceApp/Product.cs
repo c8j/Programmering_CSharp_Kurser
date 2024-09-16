@@ -11,16 +11,10 @@ public class Product
     public Product(int id)
     {
         ID = id;
-        try
-        {
-            Database.FindProduct(ID, out string name, out decimal price);
-            Name = name;
-            Price = price;
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
+        Database.FindProduct(ID, out string name, out decimal price);
+        Name = name;
+        Price = price;
+
     }
 
     /* METHODS */

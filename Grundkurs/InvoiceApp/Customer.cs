@@ -10,14 +10,7 @@ public class Customer : Person
     public Customer(int id) : base(id)
     {
         ID = id;
-        try
-        {
-            PaymentTerms = Database.FindPaymentTerms(id);
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine(ex.Message);
-            PaymentTerms = 14;
-        }
+        PaymentTerms = Database.FindPaymentTerms(id);
+        PaymentTerms = 14;
     }
 }
