@@ -8,6 +8,8 @@ public class Invoice
     public DateTime InvoiceDate { get; }
     public DateTime DueDate { get; }
     public decimal TotalValue { get; private set; }
+    public bool IsPaid { get; set; } = false;
+    //TODO: Implement method that changes state
 
     //Sender(Company)
     public Person Sender { get; }
