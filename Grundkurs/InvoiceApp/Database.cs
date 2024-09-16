@@ -28,9 +28,13 @@ public static class Database
             return new ContactDetails()
             {
                 Name = "Vanhedens järnhandel",
-                Address = "Stålgatan 14",
-                PostalCode = "888 98",
-                City = "Hålan",
+                Address =
+                {
+                    Street = "Stålgatan",
+                    Number = "14",
+                    PostalCode = "888 98",
+                    City = "Hålan",
+                },
                 Phone = "073-444222",
                 Reference = "Dynamit Harry",
                 ReferenceEmail = "harry@gmail.com",
@@ -41,9 +45,13 @@ public static class Database
             return new ContactDetails()
             {
                 Name = "Bosse Kofot",
-                Address = "Rånarvägen 1",
-                PostalCode = "666 78",
-                City = "Härlanda",
+                Address =
+                {
+                    Street = "Rånarvägen",
+                    Number = "1",
+                    PostalCode = "666 78",
+                    City = "Härlanda",
+                },
                 Reference = "Sickan Karlsson",
             };
         }
