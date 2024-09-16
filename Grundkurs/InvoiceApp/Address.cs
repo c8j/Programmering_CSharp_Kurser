@@ -6,4 +6,6 @@ public class Address
     public string Number { get; set; } = "";
     public string PostalCode { get; set; } = "";
     public string City { get; set; } = "";
+
+    public override string ToString() => $"{Street} {Number}, {PostalCode} {City}";
 }

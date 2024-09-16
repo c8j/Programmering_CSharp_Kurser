@@ -16,7 +16,13 @@ public class Person
         catch (ArgumentException ex)
         {
             Console.WriteLine(ex.Message);
-            ContactDetails = new ContactDetails();
+            ContactDetails = new()
+            {
+                Address = new()
+            };
         }
     }
+
+    /* METHODS */
+    public override string ToString() => $"Namn: {ContactDetails.Name}, Adress: {ContactDetails.Address}";
 }

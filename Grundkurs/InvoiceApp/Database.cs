@@ -28,7 +28,7 @@ public static class Database
             return new ContactDetails()
             {
                 Name = "Vanhedens järnhandel",
-                Address =
+                Address = new()
                 {
                     Street = "Stålgatan",
                     Number = "14",
@@ -45,7 +45,7 @@ public static class Database
             return new ContactDetails()
             {
                 Name = "Bosse Kofot",
-                Address =
+                Address = new()
                 {
                     Street = "Rånarvägen",
                     Number = "1",

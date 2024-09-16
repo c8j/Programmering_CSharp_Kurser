@@ -42,7 +42,7 @@ public class Invoice
     /* METHODS */
     public override string ToString()
     {
-        return $"Fakturanummer: {InvoiceNumber} - Fakturadatum: {InvoiceDate} - Förfallodatum: {DueDate} - Kund: {Customer.ContactDetails.Name} - Totalt: {TotalValue}";
+        return $"Fakturanummer: {InvoiceNumber} - Fakturadatum: {InvoiceDate} - Förfallodatum: {DueDate} - Kund: {Customer.ID} ({Customer}) - Totalt: {TotalValue}";
     }
 
     public void AddItem(int productID, int numberOfItems)
