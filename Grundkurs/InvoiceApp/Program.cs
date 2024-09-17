@@ -3,13 +3,16 @@
 try
 {
     //Skapa ett objekt ifrån klassen Invoice
-    Invoice invoice = new(0, 981256);
-    invoice.AddItem(1, 4);
-    invoice.AddItem(2, 1);
+    SaleOrder order = new(981256);
+    order.AddItem(1, 4);
+    order.AddItem(2, 1);
     //invoice.AddItem(3, 2);
+    Console.WriteLine(order);
+    Console.WriteLine("Beställningrader:");
+    order.ListItems();
+
+    Invoice invoice = order.CreateInvoice(0);
     Console.WriteLine(invoice);
-    Console.WriteLine("Fakturarader:");
-    invoice.ListItems();
 
     //Skapa en fejk påminnelse
     OverdueInvoice reminder = new(0, 981256);

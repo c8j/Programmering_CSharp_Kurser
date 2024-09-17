@@ -18,9 +18,10 @@ public class Invoice
     public Customer Customer { get; }
 
     /* Fakturans rader */
-    public List<InvoiceItem> InvoiceItems { get; }
+    public List<ProductItem> InvoiceItems { get; }
 
     /* CONSTRUCTORS */
+
     public Invoice(int senderID, int customerID)
     {
         Sender = new Person(senderID);
@@ -39,6 +40,11 @@ public class Invoice
         InvoiceItems = [];
     }
 
+    public Invoice(int senderID, int customerID, SaleOrder saleOrder) : this(senderID, customerID)
+    {
+        InvoiceItems = saleOrder.ProductItems;
+    }
+
     /* METHODS */
     public override string ToString()
     {
@@ -47,13 +53,13 @@ public class Invoice
 
     public void AddItem(int productID, int numberOfItems)
     {
-        InvoiceItems.Add(new InvoiceItem(new Product(productID), numberOfItems));
-        TotalValue += InvoiceItems.Last().RowPrice;
+        InvoiceItems.Add(new ProductItem(new Product(productID), numberOfItems));
+        TotalValue += InvoiceItems.Last().TotalPrice;
     }
 
     public void ListItems()
     {
-        foreach (InvoiceItem invoiceItem in InvoiceItems)
+        foreach (ProductItem invoiceItem in InvoiceItems)
         {
             Console.WriteLine(invoiceItem);
         }

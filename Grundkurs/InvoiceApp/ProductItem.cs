@@ -1,13 +1,15 @@
 ﻿namespace InvoiceApp;
 
-public class InvoiceItem(Product product, int numberOfItems)
+public class ProductItem(Product product, int numberOfItems)
 {
-    /* PROPERTIES */
     public Product Product { get; } = product;
-    public int NumberOfItems { get; } = numberOfItems;
+    public int NumberOfItems { get; set; } = numberOfItems;
     public decimal TotalPrice
     {
-        get { return NumberOfItems * Product.Price; }
+        get
+        {
+            return NumberOfItems * Product.Price;
+        }
     }
 
     /* METHODS */
