@@ -23,9 +23,9 @@ public class SaleOrder(int customerNumber)
         }
     }
 
-    public Invoice CreateInvoice(int senderID)
+    public Invoice CreateInvoice(int senderID, int invoiceNumber)
     {
-        return new Invoice(senderID, Customer.ID, this);
+        return new Invoice(senderID, Customer.ID, invoiceNumber, this);
     }
 
     public override string ToString()

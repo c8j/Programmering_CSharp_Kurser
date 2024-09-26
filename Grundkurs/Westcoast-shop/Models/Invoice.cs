@@ -28,13 +28,14 @@ public class Invoice
 
     /* CONSTRUCTORS */
 
-    public Invoice(int senderID, int customerID)
+    public Invoice(int senderID, int customerID, int invoiceNumber)
     {
         Sender = new Person(senderID);
         Customer = new Customer(customerID);
 
         //Generera fakturanummer
-        InvoiceNumber = new Random().Next(10000, 33001);
+        //InvoiceNumber = new Random().Next(10000, 33001);
+        InvoiceNumber = invoiceNumber;
 
         //Skapa fakturadatum
         InvoiceDate = DateTime.Now;
@@ -46,7 +47,7 @@ public class Invoice
         InvoiceItems = [];
     }
 
-    public Invoice(int senderID, int customerID, SaleOrder saleOrder) : this(senderID, customerID)
+    public Invoice(int senderID, int customerID, int invoiceNumber, SaleOrder saleOrder) : this(senderID, customerID, invoiceNumber)
     {
         InvoiceItems = saleOrder.ProductItems;
     }

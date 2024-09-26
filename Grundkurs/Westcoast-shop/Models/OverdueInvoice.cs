@@ -1,6 +1,6 @@
 namespace Westcoast_shop.Models;
 
-public class OverdueInvoice(int senderID, int customerID) : Invoice(senderID, customerID)
+public class OverdueInvoice(int senderID, int customerID, int invoiceNumber) : Invoice(senderID, customerID, invoiceNumber)
 {
     /* PROPERTIES */
     public decimal Interest { get; } = 0.25M;
