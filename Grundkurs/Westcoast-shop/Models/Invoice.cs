@@ -7,7 +7,13 @@ public class Invoice
     public int InvoiceNumber { get; }
     public DateTime InvoiceDate { get; }
     public DateTime DueDate { get; }
-    public decimal TotalValue { get; private set; }
+    public decimal TotalValue
+    {
+        get
+        {
+            return InvoiceItems.Sum(item => item.TotalPrice);
+        }
+    }
     public bool IsPaid { get; set; } = false;
     //TODO: Implement method that changes state
 
@@ -54,7 +60,6 @@ public class Invoice
     public void AddItem(int productID, int numberOfItems)
     {
         InvoiceItems.Add(new ProductItem(new Product(productID), numberOfItems));
-        TotalValue += InvoiceItems.Last().TotalPrice;
     }
 
     public void ListItems()
