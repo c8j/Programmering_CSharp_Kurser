@@ -8,6 +8,7 @@ public class Person
     public string Email { get; set; } = "";
     public string Phone { get; set; } = "";
     public int Age { get; set; }
+    public Address Address { get; set; } = new();
 
     public override string ToString() =>
     $"Name: {FirstName} {LastName}, Age: {Age}, Phone: {Phone}, " +

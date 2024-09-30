@@ -1,8 +1,13 @@
 {
-  "createdAt": "2024-09-30T14:12:28.0134202+02:00",
+  "createdAt": "2024-09-30T14:37:33.8609457+02:00",
   "firstName": "John",
   "lastName": "Smith",
   "email": "johnsmith@gmail.com",
   "phone": "0462738291",
-  "age": 30
+  "age": 30,
+  "address": {
+    "addressLine": "Tunavägen 12",
+    "postalCode": "145 67",
+    "city": "Lund"
+  }
 }
