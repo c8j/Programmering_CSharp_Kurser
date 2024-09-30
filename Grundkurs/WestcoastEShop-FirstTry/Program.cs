@@ -8,6 +8,18 @@ var salesOrder = new SalesOrder
     OrderId = 23
 };
 
+salesOrder.Customer = new Customer
+{
+    CustomerId = 12,
+    CreatedAt = DateTime.Now,
+    LastBuy = DateTime.Now,
+    FirstName = "John",
+    LastName = "Smith",
+    AddressLine = "Storgatan 8",
+    PostalCode = "123 45",
+    City = "Storstad"
+};
+
 var jsonOptions = new JsonSerializerOptions
 {
     WriteIndented = true,
