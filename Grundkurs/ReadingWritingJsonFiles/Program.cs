@@ -1,4 +1,5 @@
-﻿using ReadingWritingJsonFiles;
+﻿using System.Text.Json;
+using ReadingWritingJsonFiles;
 
 Person person = new()
 {
@@ -10,3 +11,13 @@ Person person = new()
 };
 
 Console.WriteLine(person);
+var path = $"{Environment.CurrentDirectory}/data/person.json";
+#pragma warning disable CA1869 // Cache and reuse 'JsonSerializerOptions' instances
+var jsonOption = new JsonSerializerOptions
+{
+    WriteIndented = true,
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+};
+#pragma warning restore CA1869 // Cache and reuse 'JsonSerializerOptions' instances
+var json = JsonSerializer.Serialize(person, jsonOption);
+File.WriteAllText(path, json);
