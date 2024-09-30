@@ -2,9 +2,16 @@
 Console.WriteLine(path);
 
 
-string message = "Info added " + DateTime.Now.ToShortDateString();
+/* string message = "Info added " + DateTime.Now.ToShortDateString();
 
 File.WriteAllText(path, message);
 
 string text = File.ReadAllText(path);
-Console.WriteLine(text);
+Console.WriteLine(text); */
+
+using StreamWriter sw = new(path);
+string message = "Info added " + DateTime.Now;
+sw.WriteLine(message);
+message = "Info added again " + DateTime.Now;
+sw.WriteLine(message);
+sw.Close();
