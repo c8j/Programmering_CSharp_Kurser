@@ -8,7 +8,12 @@ public class OrderItem
     {
         get
         {
-            return (Product != null) ? Product.Price * Quantity - Discount : 0;
+            if (Product != null)
+            {
+                var initialPrice = Product.Price * Quantity;
+                return initialPrice - initialPrice * Discount;
+            }
+            return 0;
         }
     }
     public int Quantity { get; set; }

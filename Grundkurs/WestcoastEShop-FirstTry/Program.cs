@@ -20,7 +20,7 @@ var orderItem1 = new OrderItem
 {
     Product = product1,
     Quantity = 3,
-    Discount = 10M
+    Discount = 0.1M
 };
 
 var orderItem2 = new OrderItem
