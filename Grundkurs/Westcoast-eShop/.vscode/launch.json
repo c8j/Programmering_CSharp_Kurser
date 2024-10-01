@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/eShop.App/bin/Debug/net8.0/eShop.App.dll",
+            "program": "${workspaceFolder}/eShop.app/bin/Debug/net8.0/eShop.app.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/eShop.App",
+            "cwd": "${workspaceFolder}/eShop.app",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

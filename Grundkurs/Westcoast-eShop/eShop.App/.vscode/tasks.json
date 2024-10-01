@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/eShop.App.csproj",
+                "${workspaceFolder}/eShop.app.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/eShop.App.csproj",
+                "${workspaceFolder}/eShop.app.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/eShop.App.csproj"
+                "${workspaceFolder}/eShop.app.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
