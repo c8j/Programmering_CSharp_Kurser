@@ -1,7 +1,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Json;
 
-namespace eShop.Models;
+namespace eShop.models;
 
 public static class Storage
 {
@@ -12,15 +12,13 @@ public static class Storage
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
     };
 
-    private static readonly string s_path = $"{Environment.CurrentDirectory}/data/orders.json";
-
-    public static void SaveOrdersToFile(List<SalesOrder> orders)
+    public static void SaveOrdersToFile(string path, List<SalesOrder> orders)
     {
-        File.WriteAllText(s_path, JsonSerializer.Serialize(orders, s_jsonOptions));
+        File.WriteAllText(path, JsonSerializer.Serialize(orders, s_jsonOptions));
     }
 
-    public static List<SalesOrder>? ReadOrdersFromFile()
+    public static List<SalesOrder>? ReadOrdersFromFile(string path)
     {
-        return JsonSerializer.Deserialize<List<SalesOrder>>(File.ReadAllText(s_path), s_jsonOptions);
+        return JsonSerializer.Deserialize<List<SalesOrder>>(File.ReadAllText(path), s_jsonOptions);
     }
 }

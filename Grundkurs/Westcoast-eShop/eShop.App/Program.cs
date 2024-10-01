@@ -1,6 +1,8 @@
-﻿using eShop.Models;
+﻿using eShop.models;
 
-List<SalesOrder>? orders = Storage.ReadOrdersFromFile();
+string path = $"{Environment.CurrentDirectory}/data/orders.json";
+
+List<SalesOrder>? orders = Storage.ReadOrdersFromFile(path);
 
 if (orders is not null)
 {
@@ -16,5 +18,5 @@ if (orders is not null)
         }
     }
 
-    Storage.SaveOrdersToFile(orders);
+    Storage.SaveOrdersToFile(path, orders);
 }

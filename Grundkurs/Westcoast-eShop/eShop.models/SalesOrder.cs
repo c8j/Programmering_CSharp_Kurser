@@ -1,4 +1,4 @@
-namespace eShop.Models;
+namespace eShop.models;
 
 public class SalesOrder
 {

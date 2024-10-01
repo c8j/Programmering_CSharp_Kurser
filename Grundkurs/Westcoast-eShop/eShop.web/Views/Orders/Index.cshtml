@@ -1,0 +1,24 @@
+@model List<eShop.models.SalesOrder>
+
+<h1>Aktuella beställningar</h1>
+
+
+@foreach (eShop.models.SalesOrder order in Model)
+
+{
+    <div>@order</div>
+    <ul>
+        @if (order.OrderItems is not null)
+
+        {
+
+            @foreach (eShop.models.OrderItem item in order.OrderItems)
+
+            {
+                <li>
+                    @item
+                </li>
+            }
+        }
+    </ul>
+}
