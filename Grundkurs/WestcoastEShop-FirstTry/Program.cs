@@ -1,6 +1,6 @@
 ﻿using Westcoast_EShop.Models;
 
-var product1 = new Product
+/* var product1 = new Product
 {
     ProductId = 1,
     ProductName = "Crowbar",
@@ -78,6 +78,16 @@ var orders = new List<SalesOrder>
             }
         ]
     }
-};
+}; */
 
-Storage.SaveOrdersToFile(orders);
+List<SalesOrder>? orders = Storage.ReadOrdersFromFile();
+
+if (orders is not null)
+{
+    foreach (SalesOrder order in orders)
+    {
+        Console.WriteLine(order);
+    }
+
+    Storage.SaveOrdersToFile(orders);
+}
