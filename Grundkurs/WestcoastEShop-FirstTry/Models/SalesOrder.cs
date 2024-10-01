@@ -6,4 +6,6 @@ public class SalesOrder
     public DateTime OrderDate { get; set; }
     public int OrderId { get; set; }
     public List<OrderItem>? OrderItems { get; set; }
+
+    public override string ToString() => $"{OrderId} {OrderDate.ToShortDateString()} {Customer}";
 }
