@@ -1,6 +1,4 @@
 ﻿using Westcoast_EShop.Models;
-using System.Text.Json;
-using System.Text.Encodings.Web;
 
 var product1 = new Product
 {
@@ -52,7 +50,7 @@ var orders = new List<SalesOrder>
     salesOrder1,
     new() {
         OrderDate = DateTime.Now,
-        OrderId = 26,
+        OrderId = 28,
         Customer = new Customer
         {
             CustomerId = 19,
@@ -82,24 +80,4 @@ var orders = new List<SalesOrder>
     }
 };
 
-var jsonOptions = new JsonSerializerOptions
-{
-    WriteIndented = true,
-    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-};
-
-var path = $"{Environment.CurrentDirectory}/data/orders.json";
-
-var jsonText = JsonSerializer.Serialize(orders, jsonOptions);
-
-File.WriteAllText(path, jsonText);
-
-/* using (var sw = new StreamWriter(path))
-{
-    foreach (SalesOrder order in orders)
-    {
-        var jsonText = JsonSerializer.Serialize(order, jsonOptions);
-        sw.WriteLine(jsonText);
-    }
-} */
+Storage.SaveOrdersToFile(orders);
