@@ -1,0 +1,38 @@
+{
+  "customer": {
+    "addressLine": "Storgatan 8",
+    "city": "Storstad",
+    "createdAt": "2024-10-01T10:03:13.4692292+02:00",
+    "customerId": 12,
+    "email": null,
+    "firstName": "John",
+    "lastBuy": "2024-10-01T10:03:13.4692671+02:00",
+    "lastName": "Smith",
+    "phone": null,
+    "postalCode": "123 45"
+  },
+  "orderDate": "2024-10-01T10:03:13.4553804+02:00",
+  "orderId": 23,
+  "orderItems": [
+    {
+      "discount": 0.1,
+      "product": {
+        "price": 400,
+        "productId": 1,
+        "productName": "Crowbar"
+      },
+      "totalPrice": 1080.0,
+      "quantity": 3
+    },
+    {
+      "discount": 0,
+      "product": {
+        "price": 200,
+        "productId": 2,
+        "productName": "Hammer"
+      },
+      "totalPrice": 400,
+      "quantity": 2
+    }
+  ]
+}

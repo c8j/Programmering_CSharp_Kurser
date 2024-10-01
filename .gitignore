@@ -382,6 +382,9 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# Temp
+#*.json
+
 # VS Code files for those working on multiple tools
 .vscode/*
 !.vscode/settings.json
@@ -424,7 +427,7 @@ test-results/
 
 # Mac bundle stuff
 *.dmg
-*.app
+#*.app
 
 # content below from: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 # General
@@ -483,5 +486,3 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
-# Temp
-*.json
