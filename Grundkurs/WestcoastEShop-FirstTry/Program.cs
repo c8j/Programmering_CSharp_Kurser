@@ -29,7 +29,7 @@ var orderItem2 = new OrderItem
     Quantity = 2
 };
 
-var salesOrder = new SalesOrder
+var salesOrder1 = new SalesOrder
 {
     OrderDate = DateTime.Now,
     OrderId = 23,
@@ -47,6 +47,41 @@ var salesOrder = new SalesOrder
     OrderItems = [orderItem1, orderItem2]
 };
 
+var orders = new List<SalesOrder>
+{
+    salesOrder1,
+    new() {
+        OrderDate = DateTime.Now,
+        OrderId = 26,
+        Customer = new Customer
+        {
+            CustomerId = 19,
+            CreatedAt = DateTime.Now,
+            LastBuy = DateTime.Now,
+            FirstName = "James",
+            LastName = "Cameron",
+            AddressLine = "Lillagatan 80",
+            PostalCode = "123 54",
+            City = "Lillastad"
+        },
+        OrderItems =
+        [
+            new OrderItem
+            {
+                Product = product1,
+                Quantity = 5,
+                Discount = 0.2M
+            },
+            new OrderItem
+            {
+                Product = product2,
+                Quantity = 10,
+                Discount = 0.5M
+            }
+        ]
+    }
+};
+
 var jsonOptions = new JsonSerializerOptions
 {
     WriteIndented = true,
@@ -54,8 +89,17 @@ var jsonOptions = new JsonSerializerOptions
     Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
 };
 
-var path = $"{Environment.CurrentDirectory}/data/salesOrder.json";
+var path = $"{Environment.CurrentDirectory}/data/orders.json";
 
-var jsonText = JsonSerializer.Serialize(salesOrder, jsonOptions);
+var jsonText = JsonSerializer.Serialize(orders, jsonOptions);
 
 File.WriteAllText(path, jsonText);
+
+/* using (var sw = new StreamWriter(path))
+{
+    foreach (SalesOrder order in orders)
+    {
+        var jsonText = JsonSerializer.Serialize(order, jsonOptions);
+        sw.WriteLine(jsonText);
+    }
+} */
