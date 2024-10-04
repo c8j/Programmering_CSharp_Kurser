@@ -6,7 +6,7 @@
 {
     <div>@order</div>
     <ul>
-    @if (order.OrderItems is not null)
+        @if (order.OrderItems is not null)
         {
             @foreach (eShop.models.OrderItem item in order.OrderItems)
             {
