@@ -1,19 +1,25 @@
 @model List<eShop.models.SalesOrder>
 
-<h1>Aktuella beställningar</h1>
+<h1 class="page-title">Aktuella beställningar</h1>
 
-@foreach (eShop.models.SalesOrder order in Model)
-{
-    <div>@order</div>
-    <ul>
-        @if (order.OrderItems is not null)
+<table>
+    <thead>
+        <tr>
+            <th>Info</th>
+            <th>Ordernummer</th>
+            <th>Datum</th>
+            <th>Kund</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
         {
-            @foreach (eShop.models.OrderItem item in order.OrderItems)
-            {
-                <li>
-                    @item
-                </li>
-            }
+            <tr>
+                <td>Klicka här</td>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                <td>@order.Customer!.FirstName @order.Customer.LastName</td>
+            </tr>
         }
-    </ul>
-}
+    </tbody>
+</table>
