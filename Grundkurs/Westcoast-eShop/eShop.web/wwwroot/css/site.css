@@ -1,0 +1,25 @@
+/* Tabell layout */
+
+table {
+    border: solid 1px #0d9488;
+    background-color: #ccfbf1;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table thead {
+    background-color: #0d9488;
+    color: antiquewhite;
+}
+
+table thead th {
+    font-weight: 600;
+    padding: 0.5rem 0.6rem;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 0.3rem 0.6rem;
+}
+
+/**********************************/
