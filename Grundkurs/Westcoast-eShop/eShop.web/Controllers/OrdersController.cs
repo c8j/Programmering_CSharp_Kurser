@@ -22,6 +22,13 @@ public class OrdersController : Controller
         return View(_salesOrders);
     }
 
+    public ActionResult Details(int id)
+    {
+        // var found = _salesOrders!.Where(o => o.OrderId == id).SingleOrDefault();
+        var found = _salesOrders!.SingleOrDefault(o => o.OrderId == id);
+        return View(found);
+    }
+
     private void GetOrders(string path)
     {
         _salesOrders = Storage.ReadOrdersFromFile(path);

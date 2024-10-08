@@ -5,7 +5,12 @@ namespace eShop.web.Controllers;
 public class InvoicesController : Controller
 {
 
-    public IActionResult Index()
+    public ActionResult Index()
+    {
+        return View();
+    }
+
+    public ActionResult Create()
     {
         return View();
     }

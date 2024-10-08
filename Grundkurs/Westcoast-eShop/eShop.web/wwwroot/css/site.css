@@ -1,5 +1,4 @@
 /* Tabell layout */
-
 table {
     border: solid 1px #0d9488;
     background-color: #ccfbf1;
@@ -23,3 +22,31 @@ table tbody td {
 }
 
 /**********************************/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    border: solid 1px #0d9488;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* .card div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+} */
+
+/* .page-title {
+
+} */
+
+.sub-title {
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    padding-top: 0.7rem;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+}

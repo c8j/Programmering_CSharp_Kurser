@@ -1,0 +1,51 @@
+@model eShop.models.SalesOrder;
+
+<h1 class="page-title">Beställnings info (Ordernr: @Model.OrderId)</h1>
+
+<article>
+    <h2 class="sub-title">@Model.Customer!.FirstName @Model.Customer.LastName</h2>
+    <section class="card">
+        <div>
+            <span>Ordernummer:</span>
+            <span>@Model.OrderId</span>
+            <span>Orderdatum:</span>
+            <span>@Model.OrderDate.ToString("yyyy-MM-dd")</span>
+            <span>Adress:</span>
+            <span>@Model.Customer.AddressLine</span>
+            <span>Postadress:</span>
+            <span>@Model.Customer.PostalCode</span>
+            <span>Postort:</span>
+            <span>@Model.Customer.City</span>
+        </div>
+    </section>
+    <section>
+        @* Lista alla orderrader *@
+        <table>
+            <thead>
+                <tr>
+                    <th>Artikelnr</th>
+                    <th>Produkt</th>
+                    <th>Pris/enhet</th>
+                    <th>Antalet</th>
+                    <th>Rabatt</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in @Model.OrderItems!)
+                {
+                    <tr>
+                        <td>@product.Product!.ProductId</td>
+                        <td>@product.Product.ProductName</td>
+                        <td>@product.Product.Price</td>
+                        <td>@product.Quantity</td>
+                        <td>-@((product.Discount * product.TotalPrice).ToString("0.00"))</td>
+                        <td>@product.TotalPrice.ToString("0.00")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+    @* Länk för att skapa en faktura för beställningen *@
+    <a asp-controller="Invoices" asp-action="Create">Skapa faktura</a>
+</article>
