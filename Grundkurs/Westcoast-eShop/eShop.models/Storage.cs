@@ -21,4 +21,9 @@ public static class Storage
     {
         return JsonSerializer.Deserialize<List<SalesOrder>>(File.ReadAllText(path), s_jsonOptions);
     }
+
+    public static List<Product>? ReadProductsFromFile(string path)
+    {
+        return JsonSerializer.Deserialize<List<Product>>(File.ReadAllText(path), s_jsonOptions);
+    }
 }

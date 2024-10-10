@@ -1,80 +1,80 @@
 [
-  {
-    "customer": {
-      "addressLine": "Storgatan 8",
-      "city": "Storstad",
-      "createdAt": "2024-10-01T11:42:24.7246631+02:00",
-      "customerId": 12,
-      "email": null,
-      "firstName": "John",
-      "lastBuy": "2024-10-01T11:42:24.7246973+02:00",
-      "lastName": "Smith",
-      "phone": null,
-      "postalCode": "123 45"
+    {
+        "customer": {
+            "addressLine": "Storgatan 8",
+            "city": "Storstad",
+            "createdAt": "2024-10-01T11:42:24.7246631+02:00",
+            "customerId": 12,
+            "email": null,
+            "firstName": "John",
+            "lastBuy": "2024-10-01T11:42:24.7246973+02:00",
+            "lastName": "Smith",
+            "phone": null,
+            "postalCode": "123 45"
+        },
+        "orderDate": "2024-10-01T11:42:24.7138762+02:00",
+        "orderId": 23,
+        "orderItems": [
+            {
+                "discount": 0.1,
+                "product": {
+                    "price": 400,
+                    "id": 1,
+                    "name": "Crowbar"
+                },
+                "totalPrice": 1080.0,
+                "quantity": 3
+            },
+            {
+                "discount": 0,
+                "product": {
+                    "price": 200,
+                    "productId": 2,
+                    "productName": "Hammer"
+                },
+                "totalPrice": 400,
+                "quantity": 2
+            }
+        ],
+        "totalPrice": 1480.0
     },
-    "orderDate": "2024-10-01T11:42:24.7138762+02:00",
-    "orderId": 23,
-    "orderItems": [
-      {
-        "discount": 0.1,
-        "product": {
-          "price": 400,
-          "productId": 1,
-          "productName": "Crowbar"
+    {
+        "customer": {
+            "addressLine": "Lillagatan 80",
+            "city": "Lillastad",
+            "createdAt": "2024-10-01T11:42:24.7250123+02:00",
+            "customerId": 19,
+            "email": null,
+            "firstName": "James",
+            "lastBuy": "2024-10-01T11:42:24.7250125+02:00",
+            "lastName": "Cameron",
+            "phone": null,
+            "postalCode": "123 54"
         },
-        "totalPrice": 1080.0,
-        "quantity": 3
-      },
-      {
-        "discount": 0,
-        "product": {
-          "price": 200,
-          "productId": 2,
-          "productName": "Hammer"
-        },
-        "totalPrice": 400,
-        "quantity": 2
-      }
-    ],
-    "totalPrice": 1480.0
-  },
-  {
-    "customer": {
-      "addressLine": "Lillagatan 80",
-      "city": "Lillastad",
-      "createdAt": "2024-10-01T11:42:24.7250123+02:00",
-      "customerId": 19,
-      "email": null,
-      "firstName": "James",
-      "lastBuy": "2024-10-01T11:42:24.7250125+02:00",
-      "lastName": "Cameron",
-      "phone": null,
-      "postalCode": "123 54"
-    },
-    "orderDate": "2024-10-01T11:42:24.7250106+02:00",
-    "orderId": 28,
-    "orderItems": [
-      {
-        "discount": 0.2,
-        "product": {
-          "price": 400,
-          "productId": 1,
-          "productName": "Crowbar"
-        },
-        "totalPrice": 1600.0,
-        "quantity": 5
-      },
-      {
-        "discount": 0.5,
-        "product": {
-          "price": 200,
-          "productId": 2,
-          "productName": "Hammer"
-        },
-        "totalPrice": 1000.0,
-        "quantity": 10
-      }
-    ],
-    "totalPrice": 2600.0
-  }
+        "orderDate": "2024-10-01T11:42:24.7250106+02:00",
+        "orderId": 28,
+        "orderItems": [
+            {
+                "discount": 0.2,
+                "product": {
+                    "price": 400,
+                    "productId": 1,
+                    "productName": "Crowbar"
+                },
+                "totalPrice": 1600.0,
+                "quantity": 5
+            },
+            {
+                "discount": 0.5,
+                "product": {
+                    "price": 200,
+                    "productId": 2,
+                    "productName": "Hammer"
+                },
+                "totalPrice": 1000.0,
+                "quantity": 10
+            }
+        ],
+        "totalPrice": 2600.0
+    }
 ]

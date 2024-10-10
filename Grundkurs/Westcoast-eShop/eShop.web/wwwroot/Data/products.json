@@ -1,0 +1,27 @@
+[
+    {
+        "price": 400,
+        "id": 1,
+        "name": "Crowbar"
+    },
+    {
+        "price": 200,
+        "id": 2,
+        "name": "Hammer"
+    },
+    {
+        "price": 150,
+        "id": 3,
+        "name": "Pliers"
+    },
+    {
+        "price": 600,
+        "id": 4,
+        "name": "Sledgehammer"
+    },
+    {
+        "price": 160,
+        "id": 5,
+        "name": "Screwdriver"
+    }
+]

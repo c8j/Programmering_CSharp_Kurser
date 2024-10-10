@@ -8,12 +8,20 @@
         <div>
             <span>Ordernummer:</span>
             <span>@Model.OrderId</span>
+        </div>
+        <div>
             <span>Orderdatum:</span>
             <span>@Model.OrderDate.ToString("yyyy-MM-dd")</span>
+        </div>
+        <div>
             <span>Adress:</span>
             <span>@Model.Customer.AddressLine</span>
+        </div>
+        <div>
             <span>Postadress:</span>
             <span>@Model.Customer.PostalCode</span>
+        </div>
+        <div>
             <span>Postort:</span>
             <span>@Model.Customer.City</span>
         </div>
@@ -35,8 +43,8 @@
                 @foreach (var product in @Model.OrderItems!)
                 {
                     <tr>
-                        <td>@product.Product!.ProductId</td>
-                        <td>@product.Product.ProductName</td>
+                        <td>@product.Product!.ID</td>
+                        <td>@product.Product.Name</td>
                         <td>@product.Product.Price</td>
                         <td>@product.Quantity</td>
                         <td>-@((product.Discount * product.TotalPrice).ToString("0.00"))</td>
