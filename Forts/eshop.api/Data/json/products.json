@@ -1,0 +1,37 @@
+[
+    {
+        "itemNumber": "AAA333789",
+        "productName": "Sledgehammer",
+        "description": "bonk",
+        "price": 49.95,
+        "image": "image1.jpg"
+    },
+    {
+        "itemNumber": "AAA333790",
+        "productName": "Axe",
+        "description": "run trees",
+        "price": 344.95,
+        "image": "image2.jpg"
+    },
+    {
+        "itemNumber": "AAA333791",
+        "productName": "Hammer",
+        "description": "time",
+        "price": 89.95,
+        "image": "image3.jpg"
+    },
+    {
+        "itemNumber": "AAA333792",
+        "productName": "Saw",
+        "description": "condeez",
+        "price": 149.95,
+        "image": "image4.jpg"
+    },
+    {
+        "itemNumber": "AAA333793",
+        "productName": "Screwdriver",
+        "description": "sonic",
+        "price": 99.95,
+        "image": "image5.jpg"
+    }
+]
