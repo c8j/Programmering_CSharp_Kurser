@@ -38,4 +38,15 @@ public static class Seed
             await context.SaveChangesAsync();
         }
     }
+
+    public static async Task LoadOrderItems(DataContext context)
+    {
+        if (context.OrderItems.Any()) return;
+        var orderItems = JsonSerializer.Deserialize<List<OrderItem>>(File.ReadAllText("Data/json/orderItems.json"), s_options);
+        if (orderItems is not null && orderItems.Count > 0)
+        {
+            await context.OrderItems.AddRangeAsync(orderItems);
+            await context.SaveChangesAsync();
+        }
+    }
 }

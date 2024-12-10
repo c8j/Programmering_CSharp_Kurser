@@ -25,6 +25,7 @@ try
 
     await Seed.LoadProducts(context);
     await Seed.LoadOrders(context);
+    await Seed.LoadOrderItems(context);
 }
 catch (Exception ex)
 {
